@@ -32,22 +32,22 @@ the bot online in a test server; CI is green.
 
 ---
 
-## Milestone 1 — Command Framework & Cog Architecture
+## Milestone 1 — Command Framework & Module Architecture
 **Goal:** A maintainable, extensible command structure.
 
 Scope:
-- ☐ Migrate from a single `bot.py` to a `cogs/` package with a loader that
-  discovers and registers cogs at startup.
+- ☐ Migrate from a single `bot.py` to a `modules/` package with a loader that
+  discovers and registers modules at startup.
 - ☐ Establish `bot.py` (or `main.py`) as the bootstrap: config load, intents,
-  cog loading, graceful shutdown.
+  module loading, graceful shutdown.
 - ☐ Shared config module (`config.py` or `core/config.py`) reading from env /
   `.env` with sane defaults and documented options.
-- ☐ A convention for per-cog help text and permissions.
-- ☐ A sample "utility" cog (e.g. ping, info, uptime) demonstrating the
+- ☐ A convention for per-module help text and permissions.
+- ☐ A sample "utility" module (e.g. ping, info, uptime) demonstrating the
   pattern.
 
-**Done when:** A new command can be added by dropping a cog file in `cogs/`
-with no edits to the bootstrap; reload command works without restart.
+**Done when:** A new command can be added by dropping a module file in
+`modules/` with no edits to the bootstrap; reload command works without restart.
 
 ---
 
@@ -69,15 +69,15 @@ without editing source; deployment docs cover venv, systemd, and Docker.
 
 ---
 
-## Milestone 3 — Core Feature Cogs
+## Milestone 3 — Core Feature Modules
 **Goal:** Deliver the general-purpose feature set that defines the bot.
 
 Scope (representative — owners choose which to enable):
-- ☐ Moderation cog (kick/ban/mute, audit logging, role tools).
-- ☐ Fun/utility cog (polls, reminders, dice, random).
-- ☐ Information cog (user/server/role info, avatar lookup).
-- ☐ Music/voice cog (if in scope) or clearly documented as optional extension.
-- ☐ Per-cog tests where logic is testable (pure functions first).
+- ☐ Moderation module (kick/ban/mute, audit logging, role tools).
+- ☐ Fun/utility module (polls, reminders, dice, random).
+- ☐ Information module (user/server/role info, avatar lookup).
+- ☐ Music/voice module (if in scope) or clearly documented as optional extension.
+- ☐ Per-module tests where logic is testable (pure functions first).
 
 **Done when:** Core feature group is usable end-to-end in a real server and
 documented in the README feature list.
@@ -118,7 +118,7 @@ reviewed against the feature set in Milestone 3.
 **Goal:** Confidence to tag a stable release.
 
 Scope:
-- ☐ Unit tests for pure logic; integration smoke tests for boot + cog load.
+- ☐ Unit tests for pure logic; integration smoke tests for boot + module load.
 - ☐ Linting + type checking enforced in CI (e.g. ruff, mypy).
 - ☐ Changelog (`CHANGELOG.md`) and semantic versioning.
 - ☐ Release packaging: versioned tags, GitHub Release notes, install
@@ -136,11 +136,11 @@ a host can deploy from the tag in under ~15 minutes.
 Scope:
 - ☐ Issue/PR templates and `CONTRIBUTING.md` finalized.
 - ☐ Security policy (`SECURITY.md`) for responsible disclosure.
-- ☐ Plugin/extension docs so self-hosters add their own cogs cleanly.
+- ☐ Plugin/extension docs so self-hosters add their own modules cleanly.
 - ☐ Roadmap reviewed per release cycle.
 
 **Done when:** Maintainers can triage contributions predictably and
-self-hosters can write and load their own cogs from docs alone.
+self-hosters can write and load their own modules from docs alone.
 
 ---
 
